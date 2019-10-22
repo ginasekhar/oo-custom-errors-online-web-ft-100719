@@ -6,10 +6,13 @@ class Person
   end
 
   def get_married(person)
-    if person.class != person
-      raise PartnerError
-      rescue PartnerError => error
-          puts error.message
+    self.partner = person
+    if person.class != Person
+      begin
+        raise PartnerError
+        rescue PartnerError => error
+        puts error.message
+      end
     else
       person.partner = self
     end
